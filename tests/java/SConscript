@@ -1,0 +1,10 @@
+Import("java_lib", "java_jar", "env")
+
+
+myJavaEnv = env.Clone()
+myJavaEnv.Append(JAVACFLAGS = ["-cp", java_jar])
+handler_app = myJavaEnv.Java("handler/", "handler/")
+myJavaEnv.Symlink("handler/libhaiku-onJava.so", java_lib)
+handler_copy_jar = myJavaEnv.Symlink("handler/haiku.jar", java_jar)
+
+Depends(handler_app, handler_copy_jar)
