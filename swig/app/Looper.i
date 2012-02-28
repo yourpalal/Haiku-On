@@ -20,12 +20,6 @@ public:
 								int32 port_capacity
 									= B_LOOPER_PORT_DEFAULT_CAPACITY);
 	virtual					~BLooper();
-	// Archiving
-	/*
-							BLooper(BMessage* data);
-	static	BArchivable*	Instantiate(BMessage* data);
-	virtual	status_t		Archive(BMessage* data, bool deep = true) const;
-	*/
 
 	// Message transmission
 			status_t		PostMessage(uint32 command);
