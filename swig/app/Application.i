@@ -29,11 +29,9 @@ public:
 	virtual	void				AboutRequested();
 
 	// Scripting
-	/*
 	virtual BHandler*			ResolveSpecifier(BMessage* message, int32 index,
 									BMessage* specifier, int32 form,
 									const char* property);
-	*/
 
 	// Cursor control, window/looper list, and app info
 			void				ShowCursor();
@@ -61,10 +59,8 @@ public:
 									BHandler* handler);
 			void				SetPulseRate(bigtime_t rate);
 
-	/*
 	// More scripting
 	virtual status_t			GetSupportedSuites(BMessage* data);
-	*/
 };
 
 %immutable;
