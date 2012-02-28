@@ -1,0 +1,6 @@
+haiku.jar
+libhaiku-onJava.so
+.sconsign.dblite
+swig/haiku_wrap.*
+generated/
+*.class
