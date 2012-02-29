@@ -1,3 +1,6 @@
+%import Archivable.i
+
+
 %{
 #include <LayoutItem.h>
 %}

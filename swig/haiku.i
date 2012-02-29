@@ -25,11 +25,12 @@
 %include app/Message.i
 %include app/Messenger.i
 
+%include support/Archivable.i
+
 %include app/Handler.i
 %include app/Looper.i
 %include app/Application.i
 
-%include support/Archivable.i
  
 %include interface/InterfaceDefs.i
 
