@@ -29,8 +29,10 @@
 
 %include app/Handler.i
 %include app/Looper.i
+%include app/Cursor.i
 %include app/Application.i
 
+%include app/AppDefs.i
  
 %include interface/InterfaceDefs.i
 
