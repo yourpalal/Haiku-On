@@ -46,4 +46,6 @@
 %include interface/View.i
 %include interface/Control.i
 %include interface/Button.i
+
+%include interface/StringView.i
 %include interface/Window.i
