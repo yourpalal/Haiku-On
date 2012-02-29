@@ -1,10 +1,17 @@
+import os.path
+
 Import("java_lib", "java_jar", "env")
 
 
-myJavaEnv = env.Clone()
-myJavaEnv.Append(JAVACFLAGS = ["-cp", java_jar])
-handler_app = myJavaEnv.Java("handler/", "handler/")
-myJavaEnv.Symlink("handler/libhaiku-onJava.so", java_lib)
-handler_copy_jar = myJavaEnv.Symlink("handler/haiku.jar", java_jar)
+def BuildJavaTest(env, dir):
+	app = env.Java(dir, dir)
+	lib_link = env.Symlink(os.path.join(dir, "libhaiku-onJava.so"), java_lib)
+	jar_link = env.Symlink(os.path.join(dir, "haiku.jar"), java_jar)
+	env.Depends(app, jar_link)
+	env.Depends(app, lib_link)
 
-Depends(handler_app, handler_copy_jar)
+javaEnv = env.Clone()
+javaEnv.Append(JAVACFLAGS = ["-cp", java_jar])
+
+BuildJavaTest(javaEnv, "handler/")
+BuildJavaTest(javaEnv, "gui/")
