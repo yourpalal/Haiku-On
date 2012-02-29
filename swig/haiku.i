@@ -23,7 +23,9 @@
 %include support/SupportDefs.i
 
 %include app/Message.i
+%include app/MessageQueue.i
 %include app/Messenger.i
+%include app/MessageRunner.i
 
 %include support/Archivable.i
 
