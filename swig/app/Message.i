@@ -3,11 +3,14 @@
 %}
 
 
+%immutable;
 // Name lengths and Scripting specifiers
 #define B_FIELD_NAME_LENGTH			255
 #define B_PROPERTY_NAME_LENGTH		255
+%mutable;
 
 
+BEGIN_ENUMS;
 enum {
 	B_NO_SPECIFIER = 0,
 	B_DIRECT_SPECIFIER = 1,
@@ -21,6 +24,7 @@ enum {
 	B_SPECIFIERS_END = 128
 	// app-defined specifiers start at B_SPECIFIERS_END + 1
 };
+END_ENUMS;
 
 
 class BMessage {
