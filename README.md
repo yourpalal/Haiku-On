@@ -13,3 +13,4 @@ Bullet points
  *  The build system was SCons, but it was choking on some of the generated filenames, so now it's a unholy mix of Make and SCons. This should be replaced, but it's functional.
  *  The bindings are still *very* immature.
  *  The SWIG interface files are mostly copied out of the Haiku headers, so the copyright for those chunks is held by whoever holds the copyright for the respective headers (mostly Haiku, Inc.). The copyright for anything written in this project by Alex Wilson (yourpalal) is also assigned to Haiku, Inc.
+ *  MIT licensed
