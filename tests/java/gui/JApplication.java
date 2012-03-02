@@ -8,16 +8,26 @@ class JApplication extends BApplication {
 		System.load("./libhaiku-onJava.so");
 	}
 
+	static final long kButtonPressed = BMessage.MakeWhatConstant("boom");
+
 	public JApplication()
 	{
 		super("application/x-vnd.Haiku-onJava-GUItest");
 
 		fWindow = new BWindow(new BRect(0, 0, 200, 200), "JAVA HAIKU GUI!!!",
-			window_type.B_TITLED_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS);
+			window_type.B_TITLED_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS) {
+
+			public void MessageReceived(BMessage message) {
+				if (message.getWhat() == kButtonPressed) {
+					System.out.println("BOOM!");
+				} else
+					super.MessageReceived(message);
+			}
+		};
 
 		fWindow.SetLayout(new BGroupLayout(orientation.B_VERTICAL, 0));
-
-		fWindow.AddChild(_makeUnlimited(new BButton("JAAAAAAAAAAAVAAAAAA")));
+		fWindow.AddChild(_makeUnlimited(new BButton("JAAAAAAAAAAAVAAAAAA",
+			new BMessage(kButtonPressed))));
 		fWindow.AddChild(_makeUnlimited(
 			new BStringView("string view", "WOOOO HOOO")));
 
