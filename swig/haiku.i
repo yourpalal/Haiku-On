@@ -22,6 +22,8 @@
 // need int types & typemaps to be in scope
 %include support/SupportDefs.i
 
+%include kernel/OS.i
+
 %include app/Message.i
 %include app/MessageQueue.i
 %include app/Messenger.i
