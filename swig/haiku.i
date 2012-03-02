@@ -56,3 +56,11 @@
 
 %include interface/StringView.i
 %include interface/Window.i
+
+#ifdef SWIGJAVA
+%pragma(java) jniclasscode=%{
+	static {
+		System.loadLibrary("haiku-onJava");
+	}
+%}
+#endif
