@@ -13,16 +13,27 @@ class JApplication extends BApplication {
 			window_type.B_TITLED_WINDOW, B_AUTO_UPDATE_SIZE_LIMITS) {
 
 			public void MessageReceived(BMessage message) {
-				if (message.getWhat() == kButtonPressed) {
-					System.out.println("BOOM!");
+				long what = message.getWhat();
+				if (what == kButtonPressed) {
+					String str = message.FindString("printme");
+					System.out.println("Received message: " + str);
 				} else
 					super.MessageReceived(message);
 			}
 		};
 
+		BMessage javaMessage = new BMessage(kButtonPressed);
+		javaMessage.AddString("printme", "JAVA!!!");
+
+		BMessage haikuMessage = new BMessage(kButtonPressed);
+		haikuMessage.AddString("printme", "ON HAIKU!!!");
+
 		fWindow.SetLayout(new BGroupLayout(orientation.B_VERTICAL, 0));
 		fWindow.AddChild(_makeUnlimited(new BButton("JAAAAAAAAAAAVAAAAAA",
-			new BMessage(kButtonPressed))));
+			javaMessage)));
+
+		fWindow.AddChild(_makeUnlimited(new BButton("Haiku", haikuMessage)));
+			
 		fWindow.AddChild(_makeUnlimited(
 			new BStringView("string view", "WOOOO HOOO")));
 
