@@ -11,7 +11,7 @@ class JApplication extends BApplication {
 		super("application/x-vnd.haiku-onJava-handler-test");
 	}
 
-	public SWIGTYPE_p_thread_id Run()
+	public int Run()
 	{
 		AddHandler(new JHandler());
 		return super.Run();
