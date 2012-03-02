@@ -3,11 +3,6 @@ import static org.haiku.haikuConstants.*;
 
 
 class JApplication extends BApplication {
-
-	static {
-		System.load("./libhaiku-onJava.so");
-	}
-
 	static final long kButtonPressed = BMessage.MakeWhatConstant("boom");
 
 	public JApplication()

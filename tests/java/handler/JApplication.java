@@ -2,10 +2,6 @@ import org.haiku.*;
 
 
 class JApplication extends BApplication {
-	static {
-		System.load("./libhaiku-onJava.so");
-	}
-
 	JApplication()
 	{
 		super("application/x-vnd.haiku-onJava-handler-test");
