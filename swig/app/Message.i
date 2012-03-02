@@ -293,4 +293,22 @@ public:
 		bool			FindBool(const char *, int32 n = 0) const;
 		float			FindFloat(const char *, int32 n = 0) const;
 		double			FindDouble(const char *, int32 n = 0) const;
+
+#ifdef SWIGJAVA
+public:
+		%extend {
+			/* Uses the last 4 characters of string to make a uint32,
+			 * emulating the behaviour of GCC multi-char constants.
+			 */
+			static uint32 MakeWhatConstant(const char* str)
+			{
+				// NOTE: this is compiler and platform defined
+				uint32 result = 0;
+				size_t len = strlen(str);
+				for (int i = 0; i < 4 && i < len; i++)
+					result += (str[len - i - 1] << (i * 8));
+				return result;
+			}
+		}
+#endif
 };
