@@ -21,6 +21,7 @@
 
 // need int types & typemaps to be in scope
 %include support/SupportDefs.i
+%include support/TypeConstants.i
 
 %include kernel/OS.i
 
