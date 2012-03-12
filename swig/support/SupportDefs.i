@@ -28,3 +28,5 @@ typedef uint32					perform_code;
 /* typemaps */
 %apply unsigned int {__haiku_uint32, uint32, type_code, perform_code};
 %apply int {__haiku_int32, int32, status_t};
+
+%apply long long {__haiku_int64, int64};
