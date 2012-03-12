@@ -310,5 +310,15 @@ public:
 				return result;
 			}
 		}
+
+		%extend {
+			type_code GetTypeInfo(const char* name)
+			{
+				type_code result;
+				if ($self->GetInfo(name, &result) == B_OK)
+					return result;
+				return 0;
+			}
+		}
 #endif
 };
