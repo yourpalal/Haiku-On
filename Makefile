@@ -17,4 +17,8 @@ libhaiku-onJava.so: SWIG
 tests: haiku.jar libhaiku-onJava.so
 	scons
 
+install: libhaiku-onJava.so haiku.jar
+	install libhaiku-onJava.so `finddir B_COMMON_LIB_DIRECTORY`
+	install haiku.jar `finddir B_COMMON_LIB_DIRECTORY`
+
 @PHONY : SWIG all tests
