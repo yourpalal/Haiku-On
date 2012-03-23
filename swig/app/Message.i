@@ -149,10 +149,12 @@ public:
 		status_t		FindSize(const char *name,
 							int32 index, BSize* size) const;
 
+#ifndef SWIGJAVA
 		status_t		FindString(const char *name, const char **string) const;
 		status_t		FindString(const char *name, int32 index, const char **string) const;
 		status_t		FindString(const char *name, BString *string) const;
 		status_t		FindString(const char *name, int32 index, BString *string) const;
+#endif
 		status_t		FindInt8(const char *name, int8 *value) const;
 		status_t		FindInt8(const char *name, int32 index, int8 *value) const;
 		status_t		FindUInt8(const char *name, uint8 *value) const;
@@ -280,7 +282,6 @@ public:
 		%ignore FindPoint(const char*, int32 n) const;
 		BPoint			FindPoint(const char *, int32 n = 0) const;
 
-		%ignore FindString(const char*, int32 n) const;
 		const char		*FindString(const char *, int32 n = 0) const;
 
 		%ignore FindInt8(const char*, int32 n) const;
