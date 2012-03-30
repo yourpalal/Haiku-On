@@ -9,7 +9,7 @@ get a really good return from targeting Java.
 
 To build everything
 ---------------
-    Make [all]
+    make [all]
 
 Before you do that, make sure you have the DevelopmentJava optional package installed. This will do it:
 
@@ -17,7 +17,7 @@ Before you do that, make sure you have the DevelopmentJava optional package inst
 
 Bullet points
 ---------------
- *  There is currently no install target in the Makefile.
+ *  You can install the .jar and .so files by running ```make install```
  *  The bindings are generated using SWIG.
  *  The build system was SCons, but it was choking on some of the generated filenames, so now it's a unholy mix of Make and SCons. This should be replaced, but it's functional.
  *  The bindings are still *very* immature.
