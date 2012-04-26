@@ -15,6 +15,11 @@ Before you do that, make sure you have the DevelopmentJava optional package inst
 
     installoptionalpackage DevelopmentJava
 
+You'll also need SWIG, and if you want to build the tests, you'll need SCons as well. After [installing haikuporter](http://ports.haiku-files.org/wiki/Installation#Installation) you can run the following code to do that:
+
+    haikuporter -i swig/2.0.2
+    haikuporter -i scons/2.0.1
+
 Bullet points
 ---------------
  *  You can install the .jar and .so files by running ```make install```
