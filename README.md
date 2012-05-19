@@ -15,10 +15,31 @@ Before you do that, make sure you have the DevelopmentJava optional package inst
 
     installoptionalpackage DevelopmentJava
 
+Once that's done, you'll need to install the ecj wrapper in the 'misc/' dir,
+like so:
+
+	ln -s <haiku-on repo>/misc/ecj /boot/common/bin/ecj
+
+You'll also need to link 'gjar' as 'jar':
+
+	ln -s `which gjar` /boot/common/bin/jar
+
 You'll also need SWIG, and if you want to build the tests, you'll need SCons as well. After [installing haikuporter](http://ports.haiku-files.org/wiki/Installation#Installation) you can run the following code to do that:
 
     haikuporter -i swig/2.0.2
     haikuporter -i scons/2.0.1
+
+Now that you've got almost everything ready, you'll need to get the jni headers
+in place. Haiku's DevelopmentJava currently ships with bad headers, but better
+ones from the GNUClasspath project are included in misc/. Copy them like so:
+
+	cp -f misc/jni.h /boot/common/include/
+	cp -f misc/jni_md.h /boot/common/include/
+
+Finally, because the bindings only build under gcc4, you'll need to run the
+following command before building:
+
+	setgcc x86 gcc4
 
 Bullet points
 ---------------

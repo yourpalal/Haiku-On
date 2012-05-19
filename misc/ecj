@@ -1,0 +1,24 @@
+#!/bin/sh
+
+BOOTCLASSPATH=""
+while test $# -ne 0; do
+  case "$1" in
+  -bootclasspath)
+	if test -n "$2"; then
+		BOOTCLASSPATH="$BOOTCLASSPATH:$2"
+	fi
+	shift
+	;;
+  *)
+	OPTIONS="$OPTIONS $1"
+	;;
+  esac
+  shift
+done
+
+if [ -n "$BOOTCLASSPATH" ]; then
+	jamvm -jar /boot/common/share/ecj-3.6.2.jar -bootclasspath "$BOOTCLASSPATH"\
+		$OPTIONS
+else
+	jamvm -jar /boot/common/share/ecj-3.6.2.jar $OPTIONS
+fi
