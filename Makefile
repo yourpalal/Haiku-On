@@ -3,6 +3,8 @@ all : SWIG haiku.jar libhaiku-onJava.so tests
 
 SWIG : swig/*.i swig/*/*.i
 	rm -f generated/java/src/*
+	mkdir -p generated/java/src
+	mkdir -p generated/java/classes
 	swig -c++ -java -outdir generated/java/src -Iswig/support -Iswig/app -Wall -package org.haiku swig/haiku.i
 
 haiku.jar : SWIG
